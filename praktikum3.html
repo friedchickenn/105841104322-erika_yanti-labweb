@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgba(255, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            border: 1px solid #000;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 1em;
+            border-left: 1px solid #000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:first-child {
+            border-left: none;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 0, 0, 0.7);
+            color: #000;
+        }
+
+        .header {
+            margin: 20px;
+            padding: 20px;
+            height: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            margin: 20px;
+            text-shadow: 3px 2px 1px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            margin: 20px;
+        }
+
+        .banner {
+            margin: 20px;
+        }
+
+        .banner img {
+            border-radius: 10px;
+            width: 100%;
+            display: flex;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile {
+            margin: 20px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile h2 {
+            margin: 10px;
+        }
+
+        .article {
+            margin: 20px;
+            display: flex;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .article h2 {
+            margin: 10px;
+        }
+
+        .article-content {
+            display: flex;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+
+        }
+
+        .article-item {
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 0, 0, 0.7);
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+            width: calc(25% - 40px);
+            box-sizing: border-box;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 0 0 auto;
+            text-align: center;
+        }
+
+        .article-item img {
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        .article-item h3 {
+            margin: 7px;
+            text-decoration: solid;
+        }
+
+        .article-item p {
+            margin: 0;
+        }
+
+        .article-item button {
+            margin: 10px;
+            padding: 8px;
+            overflow: hidden;
+            margin-top: 10px auto;
+            border: 1px solid #000;
+            border-radius: 8px;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+
+        }
+
+        .article-item button a {
+            text-decoration: none;
+            display: block;
+            color: #000;
+        }
+
+        .article-item button:hover {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #000;
+        }
+
+        .youtube {
+            margin: 20px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-youtube {
+            margin: 10px;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .youtube h2,
+        p {
+            margin: 10px;
+        }
+
+        .content-youtube iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer {
+            margin: 20px;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-content a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar">
+            <div class="icon">
+                <img src="foto.jpg" alt="Profile Image">
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#profile">Profile</a>
+                <a href="#Character">Character</a>
+                <a href="#youtube">You Tube</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="header" id="home">
+        <h1>Selamat Datang, Bajak Laut!</h1>
+        <P>Selamat datang di petualangan baru! Aku Monkey D. Luffy, dan aku akan menjadi Raja Bajak Laut! Bergabunglah
+            dengan kami di kapal ini dan mari kita temukan One Piece bersama-sama! Yosha! Petualangan dimulai!</P>
+        <div class="banner">
+            <img src="foto2.jpg">
+        </div>
+    </div>
+
+    <div class="profile" id="profile">
+        <h2> Tentang One Piece</h2>
+        <p>"One Piece" adalah manga Jepang karya Eiichiro Oda yang diterbitkan di majalah Weekly Shōnen Jump sejak 22
+            Juli 1997, dengan 105 volume hingga Maret 2023. Ceritanya mengikuti Monkey D. Luffy, yang memiliki tubuh
+            elastis setelah memakan Buah Iblis, bersama kru Bajak Laut Topi Jerami mencari harta karun "One Piece" untuk
+            menjadi Raja Bajak Laut.</p>
+        <p>Adaptasi anime diproduksi oleh Toei Animation sejak 1999, dengan berbagai film, OVA, dan episode khusus.
+            Manga ini dilisensikan dalam bahasa Inggris oleh Viz Media dan Madman Entertainment, sedangkan animenya oleh
+            Funimation sejak 2007.</p>
+        <p>"One Piece" mendapat pujian atas alur cerita, gambar, karakterisasi, dan humor, serta memecahkan rekor
+            cetakan awal tertinggi di Jepang. Manga ini memegang Guinness World Record untuk salinan terbanyak oleh
+            penulis tunggal dan telah terjual lebih dari 440 juta kopi hingga Mei 2018, menjadikannya manga terlaris
+            sepanjang sejarah dan terlaris selama sepuluh tahun berturut-turut hingga 2017.</p>
+    </div>
+
+    <div class="article" id="Character">
+        <div class="article-header">
+            <h2>Karakter di One Piece</h2>
+        </div>
+        <div class="article-content">
+            <div class="article-item">
+                <img src="luffy.jpg" alt="">
+                <h3>Monkey D.Luffy</h3>
+                <p><b>Alias</b>: Topi Jerami, Manusia karet.</p>
+                <p><b>Jabatan</b>: Kapten.</p>
+                <p><b>Tebusan/Bounty</b>: ฿3.000.000.000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="zoro.jpg" alt="">
+                <h3>Roronoa Zoro</h3>
+                <p><b>Alias</b>: Pemburu Bajak Laut, Pendekar Tiga Pedang.</p>
+                <p><b>Jabatan</b>: Petarung, Pendekar Pedang.</p>
+                <p><b>Tebusan/Bounty</b>: ฿1.111.000.000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="nami.jpg" alt="">
+                <h3>Nami</h3>
+                <p><b>Alias</b>: Kucing Pencuri.</p>
+                <p><b>Jabatan</b>: Navigator.</p>
+                <p><b>Tebusan/Bounty</b>: ฿366,000,000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="sanji.jpg" alt="">
+                <h3>Vinsmoke Sanji</h3>
+                <p><b>Alias</b>: Kaki Hitam, Alis Melingkar.</p>
+                <p><b>Jabatan</b>: Koki, Okama.</p>
+                <p><b>Tebusan/Bounty</b>: ฿1.032.000.000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="usopp.jpg" alt="">
+                <h3>Usopp</h3>
+                <p><b>Alias</b>: Hidung Panjang, God Usopp, Soge King.</p>
+                <p><b>Jabatan</b>: Penembak Jitu.</p>
+                <p><b>Tebusan/Bounty</b>: ฿500.000.000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="chopper.jpg" alt="">
+                <h3>Tony Tony Chopper</h3>
+                <p><b>Alias</b>: Pecinta Permen Kapas.</p>
+                <p><b>Jabatan</b>: Dokter.</p>
+                <p><b>Tebusan/Bounty</b>: ฿1,000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="niko.jpg" alt="">
+                <h3>Nico Robin</h3>
+                <p><b>Alias</b>: Anak Iblis.</p>
+                <p><b>Jabatan</b>: Arkeolog.</p>
+                <p><b>Tebusan/Bounty</b>: ฿930.000.000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="franky.jpg" alt="">
+                <h3>Franky/Cutty Flam</h3>
+                <p><b>Alias</b>: Cyborg.</p>
+                <p><b>Jabatan</b>: Tukang Kayu.</p>
+                <p><b>Tebusan/Bounty</b>: ฿394,000,000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="brook.jpg" alt="">
+                <h3>Brook</h3>
+                <p><b>Alias</b>: Pendekar Bersenandung.</p>
+                <p><b>Jabatan</b>: Musisi.</p>
+                <p><b>Tebusan/Bounty</b>: ฿383,000,000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+            <div class="article-item">
+                <img src="jinbei.jpg" alt="">
+                <h3>Jinbei</h3>
+                <p><b>Alias</b>: ksatria lautan.</p>
+                <p><b>Jabatan</b>:supir/pengemudi kapal.</p>
+                <p><b>Tebusan/Bounty</b>: ฿1,100,000,000</p>
+                <button><a href="kirim pesan.html">Kirim Pesan</a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="youtube" id="youtube">
+        <div class="header-youtube">
+            <h2>You Tube</h2>
+            <p>Jika kalian ingin menonton anime one piece ini, kalian bisa menontonnya di link you tube dibawah ini.</p>
+        </div>
+        <div class="content-youtube">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/W-Ck0YE_JOg?si=ei-njSgqCxYO85df"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 <a href="https://instagram.com/erykthvren"><b>Erika Yanti</b></a> 105841104322. Universitas Muhammadiyah Makassar.</p>
+        </div>
+    </footer>
+    
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim Pesan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(255, 0, 0, 0.7);
+            margin: 0;
+            padding: 0;
+        }
+
+        .kirim-pesan {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+            ;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .kirim-pesan h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-container {
+            flex: 1 1 45%;
+            /* 45% width, can adjust as needed */
+            margin-bottom: 10px;
+        }
+
+        .input-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-container input[type="text"],
+        .input-container input[type="date"],
+        .input-container select,
+        .input-container textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #000;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .input-container textarea {
+            resize: vertical;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.3)
+        }
+
+        .input-container button {
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.7);
+            color: #000;
+            padding: 10px 20px;
+            border: 1px solid #000;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .result-container {
+            flex: 1 1 45%;
+            /* 45% width, can adjust as needed */
+            margin-left: 20px;
+            padding: 20px;
+            border: 1px solid #000;
+            box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        .result-entry {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .result-entry h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .result-entry p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kirim-pesan">
+        <div class="form-container">
+            <h2 id="characterName">Kirim Pesan kepada <span id="characterPlaceholder">Karakter</span></h2>
+            <div class="input-container">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+
+            <div class="input-container">
+                <label for="tanggal_lahir">Tanggal Lahir:</label>
+                <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
+            </div>
+
+            <div class="input-container">
+                <label for="jenis_kelamin">Jenis Kelamin:</label>
+                <select id="jenis_kelamin" name="jenis_kelamin" required>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+
+            <div class="input-container">
+                <label for="alamat">Alamat:</label>
+                <textarea id="alamat" name="alamat" rows="2" required></textarea>
+            </div>
+
+            <div class="input-container">
+                <label for="pesan">Pesan:</label>
+                <textarea id="pesan" name="pesan" rows="4" required></textarea>
+            </div>
+
+            <div class="input-container">
+                <button type="button" onclick="submitForm()">Kirim Pesan</button>
+            </div>
+        </div>
+
+        <div class="result-container" id="resultContainer">
+        </div>
+    </div>
+
+    <script>
+        
+        function submitForm() {
+            const nama = document.getElementById('nama').value;
+            const tanggal_lahir = document.getElementById('tanggal_lahir').value;
+            const jenis_kelamin = document.getElementById('jenis_kelamin').value;
+            const alamat = document.getElementById('alamat').value;
+            const pesan = document.getElementById('pesan').value;
+
+
+            const resultHtml = `
+                <div class="result-entry">
+                    <p><strong>Nama:</strong>${nama}</p>
+                    <p><strong>Tanggal Lahir:</strong> ${tanggal_lahir}</p>
+                    <p><strong>Jenis Kelamin:</strong> ${jenis_kelamin}</p>
+                    <p><strong>Alamat:</strong> ${alamat}</p>
+                    <p><strong>Pesan:</strong> ${pesan}</p>
+                </div>
+            `;
+
+            document.getElementById('resultContainer').insertAdjacentHTML('beforeend', resultHtml);
+            document.getElementById('nama').value = '';
+            document.getElementById('tanggal_lahir').value = '';
+            document.getElementById('jenis_kelamin').value = 'Laki-laki'; 
+            document.getElementById('alamat').value = '';
+            document.getElementById('pesan').value = '';
+        }
+    </script>
+</body>
+
+</html>
